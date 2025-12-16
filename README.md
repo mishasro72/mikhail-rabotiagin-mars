@@ -1,4 +1,4 @@
-# mikhail-rabotiagin-mars
+# Mikhail Rabotiagin
 This repository contains my assignments, exercises, and practice projects completed as part of the **Code the Dream (CtD Learns)** training program.  
 The course covers the fundamentals of JavaScript, Git, HTML, CSS, and core web development concepts.
 
