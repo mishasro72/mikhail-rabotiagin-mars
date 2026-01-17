@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
+
+.oswald-regular {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* CSS file for styling the HTML pages of the website  */
+html {
+  background-color: rgb(182, 182, 180);
+  height: 100vh;
+}
+
+body {
+  background-color: rgb(219, 219, 216);
+  width: 80%;
+  height: 100rem;
+  margin: auto;
+  padding: 30px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+}
+
+nav {
+  font-family: "Oswald", cursive;
+  font-size: 30px;
+  margin: 15px 0;
+  position: -webkit-sticky;
+}
+
+.nav-menu {
+  list-style-type: none;
+  padding: 0;
+  display: inline-flex;
+  gap: 20px;
+}
+
+.menu-link a {
+  display: inline-block;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #0a66c2;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu-link a:hover {
+  text-shadow: 0 0 5px rgba(28, 101, 175, 0.7);
+  transform: rotate(5deg) scale(1.25);
+}
+
+h1 {
+  color: rgb(8, 196, 209);
+  -webkit-text-stroke: 0.01px rgb(250, 249, 249);
+  background-image: url(../images/shall-not-pass.jpg);
+  height: 50px;
+  font-family: "Lobster", cursive;
+  text-align: right;
+  font-size: 40px;
+  padding: 10px;
+}
+
+h2 {
+  color: rgb(8, 196, 209);
+  font-family: "Oswald", cursive;
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3 ease;
+  color: #0a66c2;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+a:hover {
+  color: #084298;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+footer {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 10px 5px 0 0;
+}
+
+footer a {
+  margin: 10px 0 0 0;
+}
+
+footer a:hover img {
+  transform: rotate(10deg) scale(1.35);
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
+  color: white;
+}
+
+.icon-img {
+  width: 20px;
+  height: 20px;
+}
+
+/* css for main page  */
+
+#Experience b {
+  display: inline-block;
+  transition: scale 0.3s ease, text-shadow 0.3s ease;
+}
+
+#Experience b:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  text-shadow: 0 0 5px rgb(219, 219, 216);
+ 
+}
+
+#Connect a {
+  display: inline-flex;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+#Connect a:hover img {
+  transform: rotate(10deg) scale(1.35);
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
+  color: white;
+}
+
+
+/* css for education page */
+
+.education-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+  flex-direction: column;
+}
+
+.first-row-cards {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+}
+
+.second-row-cards {
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px;
+  position: relative;
+  left: 19%;
+  width: 60%;
+}
+
+.education-list article {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px;
+  font-size: 10px;
+  flex: 1 1 40px;
+  border: 1px solid rgb(56, 56, 56);
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgb(240, 240, 240);
+}
+
+.education-list article:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(clamp(1.2, 1.5, 1.8));
+  z-index: 10;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: rgb(158, 156, 156);
+  color: white;
+}
+
+.education-list article h3 {
+  color: #084298;
+  font-size: 12px;
+}
+
+.education-list article p {
+  font-size: 10px;
+}
+
+.tools-list b{
+  display: inline-block;
+  transition: scale 0.3s ease, text-shadow 0.3s ease;
+}
+
+.tools-list b:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px rgba(77, 151, 224, 0.5);
+}
