@@ -17,7 +17,7 @@ body {
   background-color: rgb(219, 219, 216);
   width: 80%;
   height: 100rem;
-  margin: auto;
+  margin: 0 auto;
   padding: 30px;
   font-family: "Times New Roman", Times, serif;
   font-size: large;
@@ -27,7 +27,11 @@ nav {
   font-family: "Oswald", cursive;
   font-size: 30px;
   margin: 15px 0;
-  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: rgb(219, 219, 216);
+  box-sizing: border-box;
+  /* width: 101%;  */
 }
 
 .nav-menu {
@@ -42,7 +46,9 @@ nav {
   margin: 0 5px;
   text-decoration: none;
   color: #0a66c2;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 .menu-link a:hover {
@@ -50,15 +56,17 @@ nav {
   transform: rotate(5deg) scale(1.25);
 }
 
-h1 {
+.main-name {
   color: rgb(8, 196, 209);
   -webkit-text-stroke: 0.01px rgb(250, 249, 249);
   background-image: url(../images/shall-not-pass.jpg);
-  height: 50px;
+  background-size: cover;
+  background-position: center;
+  height: 210px;
   font-family: "Lobster", cursive;
   text-align: right;
-  font-size: 40px;
-  padding: 10px;
+  font-size: 45px;
+  padding: 15px;
 }
 
 h2 {
@@ -115,29 +123,31 @@ footer a:hover img {
 
 /* css for main page  */
 
-#Experience b {
+#experience b {
   display: inline-block;
-  transition: scale 0.3s ease, text-shadow 0.3s ease;
+  transition:
+    scale 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
-#Experience b:hover {
+#experience b:hover {
   transform: scale(1.05);
   z-index: 10;
   text-shadow: 0 0 5px rgb(219, 219, 216);
- 
 }
 
-#Connect a {
+.social-icons a {
   display: inline-flex;
-  transition: transform 0.25s ease, filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 }
 
-#Connect a:hover img {
+.social-icons a:hover img {
   transform: rotate(10deg) scale(1.35);
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
   color: white;
 }
-
 
 /* css for education page */
 
@@ -163,7 +173,7 @@ footer a:hover img {
   width: 60%;
 }
 
-.education-list article {
+.education-card {
   display: flex;
   flex-direction: column;
   margin: 0 5px;
@@ -174,29 +184,46 @@ footer a:hover img {
   padding: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   background-color: rgb(240, 240, 240);
+  transition:
+    box-shadow 0.8s ease,
+    transform 0.8s ease;
 }
 
-.education-list article:hover {
+.education-card:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(clamp(1.2, 1.5, 1.8));
+  transform: scale(1.5);
   z-index: 10;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
   background-color: rgb(158, 156, 156);
   color: white;
 }
 
-.education-list article h3 {
+.education-card:focus-visible {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.5);
+  z-index: 10;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  background-color: rgb(158, 156, 156);
+  color: white;
+}
+
+.education-card h3 {
   color: #084298;
-  font-size: 12px;
+  font-size: 16px;
 }
 
-.education-list article p {
-  font-size: 10px;
+.education-card p {
+  font-size: 14px;
 }
 
-.tools-list b{
+
+
+.tools-list b {
   display: inline-block;
-  transition: scale 0.3s ease, text-shadow 0.3s ease;
+  transition:
+    scale 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 .tools-list b:hover {
