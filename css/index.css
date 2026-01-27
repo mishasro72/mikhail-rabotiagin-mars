@@ -1,83 +1,115 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
-
-.oswald-regular {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* CSS file for styling the HTML pages of the website  */
 html {
   background-color: rgb(182, 182, 180);
   height: 100vh;
+  font-size: 10px;
 }
 
 body {
-  background-color: rgb(219, 219, 216);
-  width: 80%;
-  height: 100rem;
+  background-image: url(../images/front-img-2.jpg);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
   margin: 0 auto;
-  padding: 30px;
-  font-family: "Times New Roman", Times, serif;
-  font-size: large;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  color: azure;
+  padding: 2rem;
+  width: 80%;
+  max-width: 120rem;
+  min-height: 100vh;
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  padding-left: 3rem;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  background-color: rgba(12, 12, 12, 0.9);
+  padding: 1rem 1rem 1rem 1rem;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  flex: 1 1 0;
+  padding-left: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container img {
+  object-fit: contain;
+  max-width: 15rem;
+  width: 100%;
+  height: auto;
 }
 
 nav {
-  font-family: "Oswald", cursive;
-  font-size: 30px;
-  margin: 15px 0;
-  position: sticky;
-  top: 0;
-  background-color: rgb(219, 219, 216);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 2.5rem);
   box-sizing: border-box;
-  /* width: 101%;  */
+  display: flex;
+  justify-content: center;
+  padding: 0rem 2rem 0rem 2rem;
+  flex: 4 1 0;
 }
 
 .nav-menu {
   list-style-type: none;
   padding: 0;
-  display: inline-flex;
+  display: flex;
   gap: 20px;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  transition: transform 0.7s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.15);
 }
 
 .menu-link a {
   display: inline-block;
   margin: 0 5px;
   text-decoration: none;
-  color: #0a66c2;
+  color: #ffffff;
   transition:
     transform 0.3s ease,
     text-shadow 0.3s ease;
 }
 
 .menu-link a:hover {
-  text-shadow: 0 0 5px rgba(28, 101, 175, 0.7);
+  text-shadow: 0 0 5px rgba(230, 237, 243, 0.7);
   transform: rotate(5deg) scale(1.25);
+  color: #ffffff;
 }
 
-.main-name {
-  color: rgb(8, 196, 209);
-  -webkit-text-stroke: 0.01px rgb(250, 249, 249);
-  background-image: url(../images/shall-not-pass.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 210px;
-  font-family: "Lobster", cursive;
-  text-align: right;
-  font-size: 45px;
-  padding: 15px;
-}
-
-h2 {
-  color: rgb(8, 196, 209);
-  font-family: "Oswald", cursive;
+.menu-link a:visited {
+  color: #ffffff;
 }
 
 a {
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: color 0.3 ease;
+  transition: color 0.3s ease;
   color: #0a66c2;
 }
 
@@ -116,12 +148,129 @@ footer a:hover img {
   color: white;
 }
 
-.icon-img {
-  width: 20px;
-  height: 20px;
+/* css for main page  */
+
+.flex-about {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  height: auto;
+  text-align: center;
+  color: white;
+  padding: 0 3rem 1rem 3rem;
+  margin-top: 15rem;
 }
 
-/* css for main page  */
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3rem 2rem 1rem 0rem;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.first-name {
+  font-size: clamp(1rem, 5vw, 5rem);
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: 1;
+  flex: 1;
+}
+
+.last-name {
+  font-size: clamp(1.1rem, 6vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 0;
+  flex: 1;
+}
+
+.occupation {
+  font-size: (1rem, 2vw, 2rem);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  flex: 1;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  flex: 1;
+}
+
+#about > p {
+  text-align: left;
+  background-color: rgba(59, 59, 57, 0.61);
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1;
+}
+
+#about > h2 {
+  padding-left: 1rem;
+  margin: 0;
+  flex: 1;
+}
+
+.flex-experience {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0 3rem 1rem 3rem;
+}
+
+.flex-experience > h2 {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+#experience {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+#experience div {
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+#experience .odd {
+  background-color: rgba(49, 49, 49, 0.842);
+  align-self: flex-start;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 300px 150px;
+  text-align: left;
+}
+
+#experience .even {
+  background-color: rgba(59, 59, 57, 0.61);
+  align-self: flex-end;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 300px 150px;
+  text-align: left;
+}
+
+.job-discription {
+  grid-column: 1 / span 2;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.job-title {
+  color: rgb(247, 165, 43);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+}
 
 #experience b {
   display: inline-block;
@@ -132,45 +281,116 @@ footer a:hover img {
 
 #experience b:hover {
   transform: scale(1.05);
-  z-index: 10;
-  text-shadow: 0 0 5px rgb(219, 219, 216);
+  z-index: 1000;
+  text-shadow: 0 0 10px rgb(219, 219, 216);
 }
 
-.social-icons a {
+.social-icons {
+  padding-left: 3rem;
   display: inline-flex;
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
-.social-icons a:hover img {
+.icon {
+  width: 32px;
+  height: 32px;
+  color: #fffdfd;
+  fill: currentColor;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.icon:hover {
   transform: rotate(10deg) scale(1.35);
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 6px 10px rgba(255, 255, 255, 0.9));
   color: white;
 }
 
 /* css for education page */
 
+.education-flex {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  height: auto;
+  text-align: center;
+  color: white;
+  padding: 0 3rem 1rem 3rem;
+  margin-top: 15rem;
+}
+
+.education-flex-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  flex: 1;
+}
+
+.education-flex-2 > h2 {
+  padding-left: 1rem;
+  margin: 0;
+  flex: 1;
+}
+
+.education-flex-2 > p {
+  text-align: left;
+  background-color: rgba(59, 59, 57, 0.61);
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.education-flex-2 b {
+  display: inline-block;
+  transition:
+    scale 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.education-flex-2 b:hover {
+  transform: scale(1.05);
+  z-index: 1000;
+  text-shadow: 0 0 10px rgb(219, 219, 216);
+}
+
 .education-list {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 5px;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 2rem 1rem 3rem;
+}
+
+.education-list > h2 {
+  padding-left: 1rem;
+  margin: 0;
+  flex: 1;
 }
 
 .first-row-cards {
+  flex: 1;
   display: flex;
   justify-content: space-between;
   padding: 10px 5px;
+  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .second-row-cards {
+  flex: 1;
   display: flex;
   justify-content: center;
   padding: 10px 5px;
   position: relative;
   left: 19%;
   width: 60%;
+  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .education-card {
@@ -183,7 +403,8 @@ footer a:hover img {
   border-radius: 5px;
   padding: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background-color: rgb(240, 240, 240);
+  color: black;
+  background-color: rgb(177, 176, 176);
   transition:
     box-shadow 0.8s ease,
     transform 0.8s ease;
@@ -193,7 +414,7 @@ footer a:hover img {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   transform: scale(1.5);
   z-index: 10;
-  background-color: rgb(158, 156, 156);
+  background-color: rgb(111, 109, 109);
   color: white;
 }
 
@@ -201,23 +422,18 @@ footer a:hover img {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   transform: scale(1.5);
   z-index: 10;
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-  background-color: rgb(158, 156, 156);
+  background-color: rgb(111, 109, 109);
   color: white;
 }
 
 .education-card h3 {
-  color: #084298;
+  color: #0e3d95;
   font-size: 16px;
 }
 
 .education-card p {
   font-size: 14px;
 }
-
-
 
 .tools-list b {
   display: inline-block;
@@ -228,5 +444,40 @@ footer a:hover img {
 
 .tools-list b:hover {
   transform: scale(1.05);
-  text-shadow: 0 0 5px rgba(77, 151, 224, 0.5);
+  z-index: 1000;
+  text-shadow: 0 0 10px rgb(219, 219, 216);
+}
+
+.tools-flex {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  height: auto;
+  text-align: center;
+  color: white;
+  padding: 0 3rem 1rem 3rem;
+  margin-top: 15rem;
+}
+
+.tools-flex-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  flex: 1;
+}
+
+.tools-flex-2 > h2 {
+  padding-left: 1rem;
+  margin: 0;
+  flex: 1;
+}
+
+.tools-flex-2 > p {
+  text-align: left;
+  background-color: rgba(59, 59, 57, 0.61);
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1;
 }
