@@ -10,6 +10,7 @@ html {
   box-sizing: border-box;
 }
 
+
 body {
   background-color: black;
   margin: 0 auto;
@@ -18,7 +19,8 @@ body {
   color: azure;
   padding: 2rem;
   width: 80%;
-  max-width: 144rem;
+  padding: 0;
+
   min-height: 100vh;
 }
 
@@ -292,7 +294,7 @@ footer a:hover img {
   padding-left: 1rem;
 }
 
-#experience {
+.experience {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -300,12 +302,12 @@ footer a:hover img {
   overflow: hidden;
 }
 
-#experience div {
+.experience div {
   border-radius: 12px;
   padding: 1rem;
 }
 
-#experience .odd {
+.experience .odd {
   background-color: rgba(49, 49, 49, 0.842);
   align-self: flex-start;
   flex: 1;
@@ -314,7 +316,7 @@ footer a:hover img {
   text-align: left;
 }
 
-#experience .even {
+.experience .even {
   background-color: rgba(59, 59, 57, 0.61);
   align-self: flex-end;
   flex: 1;
@@ -333,14 +335,14 @@ footer a:hover img {
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
 }
 
-#experience b {
+.experience b {
   display: inline-block;
   transition:
     scale 0.3s ease,
     text-shadow 0.3s ease;
 }
 
-#experience b:hover {
+.experience b:hover {
   transform: scale(1.05);
   z-index: 1000;
   text-shadow: 0 0 10px rgb(219, 219, 216);
