@@ -1,44 +1,76 @@
-/* CSS file for styling the HTML pages of the website  */
+/* CSS for wide screen desktop  */
 html {
   background-color: rgb(182, 182, 180);
   height: 100vh;
   font-size: 10px;
 }
 
+* {
+  /* border: 1px solid pink; */
+  box-sizing: border-box;
+}
+
+
 body {
-  background-image: url(../images/front-img-2.jpg);
   background-color: black;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: contain;
   margin: 0 auto;
   font-family: "Playfair Display", "Times New Roman", serif;
-  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-size: clamp(1.6rem, 1.2vw, 2rem);
   color: azure;
   padding: 2rem;
   width: 80%;
-  max-width: 120rem;
+  padding: 0;
+
   min-height: 100vh;
+}
+
+body.main-page {
+  background-image: url(../images/front-img-2.jpg);
+  background-position: 50% 5%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.education-page {
+  background-image: url(../images/front-img.jpg);
+  background-position: 50% 65%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.tools-page {
+  background-image: url(../images/front-img.jpg);
+  background-position: 50% 140%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 5vw, 7.2rem);
 }
 
 h2 {
   color: rgb(255, 255, 255);
-  font-family: "Playfair Display", serif;
-  font-size: 3rem;
+  font-size: clamp(2.2rem, 3.5vw, 5.6rem);
   padding-left: 3rem;
+}
+
+h3 {
+  font-size: clamp(1.8rem, 2.5vw, 4rem);
 }
 
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1rem 0.5rem 1rem;
+  margin: 0 auto;
   position: sticky;
   top: 0;
   background-color: rgba(12, 12, 12, 0.9);
   padding: 1rem 1rem 1rem 1rem;
   z-index: 1000;
   flex-wrap: wrap;
+  max-width: 90%;
 }
 
 .logo-container {
@@ -61,10 +93,8 @@ nav {
   font-style: italic;
   font-size: clamp(1rem, 2vw, 2.5rem);
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
   padding: 0rem 2rem 0rem 2rem;
-  flex: 4 1 0;
+  flex: 2 1 0;
 }
 
 .nav-menu {
@@ -83,7 +113,7 @@ nav {
 }
 
 .logo-container:hover {
-  transform: scale(1.15);
+  transform: scale(1.25);
 }
 
 .menu-link a {
@@ -98,12 +128,34 @@ nav {
 
 .menu-link a:hover {
   text-shadow: 0 0 5px rgba(230, 237, 243, 0.7);
-  transform: rotate(5deg) scale(1.25);
+  transform: rotate(1deg) scale(1.05);
   color: #ffffff;
 }
 
 .menu-link a:visited {
   color: #ffffff;
+}
+
+.submenu {
+  list-style: none;
+  position: absolute;
+  min-width: 110px;
+  padding: 8px 0;
+  background-color: rgba(12, 12, 12, 0.9);
+  display: none;
+}
+
+.with-submenu:hover .submenu {
+  display: block;
+}
+
+.with-submenu:focus-within .submenu {
+  display: block;
+}
+
+.active-menu-link {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 3px;
 }
 
 a {
@@ -126,12 +178,22 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+section#connect {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  flex: 1;
+}
+
 footer {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: small;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 footer p {
@@ -157,8 +219,10 @@ footer a:hover img {
   height: auto;
   text-align: center;
   color: white;
-  padding: 0 3rem 1rem 3rem;
-  margin-top: 15rem;
+  padding: 0 auto;
+  margin-top: 5rem;
+  max-width: 80%;
+  gap: 1rem;
 }
 
 .greeting {
@@ -167,7 +231,7 @@ footer a:hover img {
   align-items: flex-start;
   padding: 3rem 2rem 1rem 0rem;
   justify-content: center;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -202,7 +266,7 @@ footer a:hover img {
   justify-content: center;
   align-items: flex-start;
   margin: 0;
-  flex: 1;
+  flex: 3;
 }
 
 #about > p {
@@ -214,7 +278,6 @@ footer a:hover img {
 }
 
 #about > h2 {
-  padding-left: 1rem;
   margin: 0;
   flex: 1;
 }
@@ -222,16 +285,16 @@ footer a:hover img {
 .flex-experience {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0 3rem 1rem 3rem;
+  margin: 5rem auto;
+  max-width: 80%;
 }
 
 .flex-experience > h2 {
-  margin: 0;
+  margin-bottom: 2rem;
   padding-left: 1rem;
 }
 
-#experience {
+.experience {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -239,12 +302,12 @@ footer a:hover img {
   overflow: hidden;
 }
 
-#experience div {
+.experience div {
   border-radius: 12px;
   padding: 1rem;
 }
 
-#experience .odd {
+.experience .odd {
   background-color: rgba(49, 49, 49, 0.842);
   align-self: flex-start;
   flex: 1;
@@ -253,7 +316,7 @@ footer a:hover img {
   text-align: left;
 }
 
-#experience .even {
+.experience .even {
   background-color: rgba(59, 59, 57, 0.61);
   align-self: flex-end;
   flex: 1;
@@ -272,21 +335,48 @@ footer a:hover img {
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
 }
 
-#experience b {
+.experience b {
   display: inline-block;
   transition:
     scale 0.3s ease,
     text-shadow 0.3s ease;
 }
 
-#experience b:hover {
+.experience b:hover {
   transform: scale(1.05);
   z-index: 1000;
   text-shadow: 0 0 10px rgb(219, 219, 216);
 }
 
+section#skills {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  flex: 1;
+}
+
+section#projects {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  flex: 1;
+}
+
+section#connect {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  flex: 1;
+}
+
 .social-icons {
-  padding-left: 3rem;
+  align-self: center;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -311,15 +401,17 @@ footer a:hover img {
 
 /* css for education page */
 
-.education-flex {
+div.education-flex {
   display: flex;
   justify-self: center;
+  gap: 1rem;
   align-items: center;
   height: auto;
   text-align: center;
   color: white;
   padding: 0 3rem 1rem 3rem;
-  margin-top: 15rem;
+  margin: 5rem auto 1rem auto;
+  width: 80%;
 }
 
 .education-flex-2 {
@@ -363,7 +455,9 @@ footer a:hover img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 3rem 2rem 1rem 3rem;
+  padding: 0 3rem 1rem 3rem;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .education-list > h2 {
@@ -428,11 +522,11 @@ footer a:hover img {
 
 .education-card h3 {
   color: #0e3d95;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .education-card p {
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .tools-list b {
@@ -456,7 +550,9 @@ footer a:hover img {
   text-align: center;
   color: white;
   padding: 0 3rem 1rem 3rem;
-  margin-top: 15rem;
+  margin-top: 5rem;
+  height: 100vh;
+  width: 80%;
 }
 
 .tools-flex-2 {
@@ -465,7 +561,7 @@ footer a:hover img {
   justify-content: center;
   align-items: flex-start;
   margin: 0;
-  flex: 1;
+  flex: 5;
 }
 
 .tools-flex-2 > h2 {
@@ -480,4 +576,702 @@ footer a:hover img {
   padding: 1rem;
   border-radius: 12px;
   flex: 1;
+}
+
+/* CSS for desktop  */
+@media (max-width: 1700px) {
+  body {
+    font-size: clamp(1.4rem, 1.2vw, 1.8rem);
+  }
+
+  .flex-about {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: auto;
+    text-align: center;
+    color: white;
+    padding: 0 auto;
+    margin-top: 5rem;
+    max-width: 90%;
+    align-items: center;
+  }
+
+  .greeting {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .first-name {
+    font-size: clamp(1rem, 7vw, 5rem);
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1;
+    flex: 2;
+  }
+
+  .last-name {
+    font-size: clamp(1.1rem, 9vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+    flex: 3;
+  }
+
+  .occupation {
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    flex: 1;
+  }
+
+  section#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  #about > p {
+    text-align: left;
+    background-color: rgba(59, 59, 57, 0.61);
+    padding: 1rem;
+    border-radius: 12px;
+    flex: 1;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  #about > h2 {
+    padding-left: 1rem;
+    flex: 1;
+  }
+
+  .education-page h2 {
+    font-size: clamp(1rem, 3vw, 3rem);
+    padding: 0;
+    margin: 1rem;
+    flex: 1;
+  }
+
+  .flex-experience {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  .flex-experience > h2 {
+    margin-bottom: 2rem;
+    padding-left: 0;
+  }
+
+  #experience {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  #experience div {
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  #experience .odd {
+    background-color: rgba(49, 49, 49, 0.842);
+    align-self: flex-start;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 30rem 20rem;
+    text-align: left;
+  }
+
+  #experience .even {
+    background-color: rgba(59, 59, 57, 0.61);
+    align-self: flex-end;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 30rem 20rem;
+    text-align: left;
+  }
+
+  .job-discription {
+    grid-column: 1 / span 2;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .job-title {
+    color: rgb(247, 165, 43);
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  section#skills {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  section#projects {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  section#connect {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  footer {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .social-icons {
+    margin: 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0;
+  }
+
+  .icon {
+    width: 25px;
+    height: auto;
+    color: #fffdfd;
+    fill: currentColor;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  footer a {
+    margin: 0;
+  }
+
+  footer a:hover img {
+    transform: rotate(10deg) scale(1.35);
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
+    color: white;
+  }
+
+  div.education-flex {
+    width: 90%;
+    padding: 0;
+  }
+
+  .education-list {
+    padding: 0;
+    width: 90%;
+  }
+
+  .education-list > h2 {
+    padding-left: 3rem;
+  }
+
+  .education-card {
+    flex: 1 1 120px;
+    border: 1px solid rgb(56, 56, 56);
+  }
+
+  .education-card h3 {
+    color: #0e3d95;
+  }
+
+  .tools-flex {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    height: auto;
+  }
+
+  h2 {
+    align-self: center;
+  }
+}
+
+/* CSS for tablet  */
+@media (max-width: 950px) {
+  body {
+    background-position: 50% 5%;
+  }
+
+  h2 {
+    /* font-size: clamp(1rem, 3vw, 3rem); */
+    padding: 0;
+    margin: 1rem;
+    flex: 1;
+  }
+
+  .flex-about {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: auto;
+    text-align: center;
+    color: white;
+    padding: 0 auto;
+    margin-top: 5rem;
+    max-width: 90%;
+    align-items: center;
+  }
+
+  .greeting {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .first-name {
+    font-size: clamp(1rem, 4vw, 4rem);
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1;
+    flex: 2;
+  }
+
+  .last-name {
+    font-size: clamp(1rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+    flex: 3;
+  }
+
+  .occupation {
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    flex: 1;
+  }
+
+  #about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    flex: 1;
+  }
+
+  #about > p {
+    text-align: left;
+    background-color: rgba(59, 59, 57, 0.61);
+    padding: 1rem;
+    border-radius: 12px;
+    flex: 1;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  #about > h2 {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .flex-experience {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    max-width: 90%;
+  }
+
+  .flex-experience > h2 {
+    margin: 0;
+    margin-bottom: 1.14rem;
+    padding-left: 0;
+  }
+
+  #experience {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  #experience div {
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  #experience .odd {
+    background-color: rgba(49, 49, 49, 0.842);
+    align-self: flex-start;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 15rem 8rem;
+    text-align: left;
+  }
+
+  #experience .even {
+    background-color: rgba(59, 59, 57, 0.61);
+    align-self: flex-end;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 15rem 8rem;
+    text-align: left;
+  }
+
+  .job-discription {
+    grid-column: 1 / span 2;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .job-title {
+    color: rgb(247, 165, 43);
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  section#connect {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  footer {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .social-icons {
+    margin: 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .icon {
+    width: 17px;
+    height: auto;
+    color: #fffdfd;
+    fill: currentColor;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  footer p {
+    margin: 1rem 0;
+  }
+
+  footer a {
+    margin: 1rem 0;
+  }
+
+  footer a:hover img {
+    transform: rotate(10deg) scale(1.35);
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
+    color: white;
+  }
+
+  div.education-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .education-list {
+    padding: 0;
+    gap: 0.2rem;
+  }
+
+  .first-row-cards {
+    padding: 0;
+    width: 100%;
+  }
+
+  .second-row-cards {
+    padding: 0;
+    position: relative;
+    left: 0%;
+    width: 100%;
+  }
+}
+
+/* CSS for mobile  */
+@media (max-width: 415px) {
+  body {
+    background-position: 50% 5%;
+    width: 90%;
+    max-width: 100vh;
+  }
+
+  h2 {
+    align-self: center;
+  }
+
+  .top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    background-color: rgba(12, 12, 12, 0.9);
+    z-index: 1000;
+    max-width: 100%;
+  }
+
+  .logo-container {
+    flex: 1 1 0;
+    padding-left: 0rem;
+  }
+
+  .logo-container img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+  }
+
+  nav {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 2.5rem);
+    box-sizing: border-box;
+    flex: 1 1 0;
+  }
+
+  .nav-menu {
+    flex: 1 1 0;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submenu {
+    list-style: none;
+    position: absolute;
+    min-width: 50px;
+    padding: 5px 0;
+    background-color: rgba(12, 12, 12);
+    display: none;
+  }
+
+  .with-submenu:hover .submenu {
+    display: block;
+  }
+
+  .with-submenu:focus-within .submenu {
+    display: block;
+  }
+
+  .flex-about {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: auto;
+    text-align: center;
+    color: white;
+    margin-top: 5rem;
+    max-width: 90%;
+    align-items: center;
+  }
+
+  .greeting {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .first-name {
+    font-size: clamp(1rem, 7vw, 5rem);
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1;
+    flex: 2;
+  }
+
+  .last-name {
+    font-size: clamp(1.1rem, 9vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+    flex: 3;
+  }
+
+  .occupation {
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    flex: 1;
+  }
+
+  #about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    flex: 1;
+  }
+
+  #about > p {
+    text-align: left;
+    background-color: rgba(59, 59, 57, 0.61);
+    padding: 1rem;
+    border-radius: 12px;
+    flex: 1;
+  }
+
+  #about > h2 {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 1rem;
+    flex: 1;
+  }
+
+  .flex-experience {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem auto;
+    max-width: 80%;
+  }
+
+  .flex-experience > h2 {
+    margin: 0;
+  }
+
+  #experience {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  #experience div {
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  #experience .odd {
+    background-color: rgba(49, 49, 49, 0.842);
+    align-self: flex-start;
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+  }
+
+  #experience .even {
+    background-color: rgba(59, 59, 57, 0.61);
+    align-self: flex-end;
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+  }
+
+  .job-discription {
+    grid-column: 1 / span 2;
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .job-title {
+    color: rgb(247, 165, 43);
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  #connect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    flex: 1;
+  }
+
+  footer {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+
+  .social-icons {
+    margin: 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .icon {
+    width: 12px;
+    height: auto;
+    color: #fffdfd;
+    fill: currentColor;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  footer p {
+    margin: 1rem 0;
+  }
+
+  footer a {
+    margin: 1rem 0;
+  }
+
+  footer a:hover img {
+    transform: rotate(10deg) scale(1.35);
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
+    color: white;
+  }
 }

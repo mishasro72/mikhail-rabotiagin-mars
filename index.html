@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio of QA Engineer Mikhail Rabotiagin"
+      content="Portfolio of Frontend developer Mikhail Rabotiagin"
     />
-    <title>Mikhail Rabotiagin's Portfolio | QA Engineer</title>
+    <title>Mikhail Rabotiagin's Portfolio | Frontend Developer</title>
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,17 +19,24 @@
   <body class="main-page">
     <div class="top-bar">
       <div class="logo-container">
-        <a href="index.html"><img src="../images/logo.png" alt="page logo" /></a>
+        <a href="index.html"
+          ><img src="./images/logo1.png" alt="page logo"
+        /></a>
       </div>
       <nav>
         <ul class="nav-menu">
-          <li class="menu-link"><a href="tools.html">Tools</a></li>
+          <li class="menu-link with-submenu active-menu-link">
+            <!-- <a href="index.html">Main page</a> -->Main page
+            <ul class="submenu">
+              <li class="menu-link"><a href="#about">About</a></li>
+              <li class="menu-link"><a href="#experience">Experience</a></li>
+              <li class="menu-link"><a href="#skills">Skills</a></li>
+              <li class="menu-link"><a href="#projects">Projects</a></li>
+              <li class="menu-link"><a href="#connect">Connect</a></li>
+            </ul>
+          </li>
           <li class="menu-link"><a href="education.html">Education</a></li>
-          <li class="menu-link"><a href="#about">About</a></li>
-          <li class="menu-link"><a href="#experience">Experience</a></li>
-          <li class="menu-link"><a href="#skills">Skills</a></li>
-          <li class="menu-link"><a href="#projects">Projects</a></li>
-          <li class="menu-link"><a href="#connect">Connect</a></li>
+          <li class="menu-link"><a href="tools.html">Tools</a></li>
         </ul>
       </nav>
     </div>
@@ -62,9 +69,9 @@
         </p>
       </section>
     </div>
-    <section class="flex-experience">
+    <section class="flex-experience" id="experience">
       <h2>Experience</h2>
-      <div id="experience">
+      <div class="experience">
         <div class="odd">
           <div class="job-title">QA Engineer</div>
           <div class="period">2023 - Present</div>
@@ -139,6 +146,7 @@
     </section>
     <section id="skills">
       <h2>Skills</h2>
+      <ul></ul>
     </section>
     <section id="projects">
       <h2>Projects</h2>
