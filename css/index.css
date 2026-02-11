@@ -10,7 +10,6 @@ html {
   box-sizing: border-box;
 }
 
-
 body {
   background-color: black;
   margin: 0 auto;
@@ -193,7 +192,8 @@ footer {
   justify-content: center;
   align-items: center;
   max-width: 90%;
-  margin: 0 auto;
+  margin: 5rem auto;
+  padding-bottom: 4rem;
 }
 
 footer p {
@@ -202,9 +202,12 @@ footer p {
 
 footer a {
   margin: 10px 0 0 0;
+  display: inline-flex;       
+  align-items: center;
+  justify-content: center;
 }
 
-footer a:hover img {
+footer a:hover {
   transform: rotate(10deg) scale(1.35);
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
   color: white;
@@ -354,7 +357,43 @@ section#skills {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  flex: 1;
+}
+
+
+.skills-list {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.skills-list li {
+ background-color: rgba(59, 59, 57, 0.61);
+  padding: 3rem;
+  border-radius: 12px;
+   transition:
+    box-shadow 0.8s ease,
+    transform 0.8s ease;
+}
+
+.skills-list li:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.4);
+  z-index: 10;
+  background-color: rgb(111, 109, 109);
+  color: white;
+}
+
+.skills-list li:focus-visible  {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.4);
+  z-index: 10;
+  background-color: rgb(111, 109, 109);
+  color: white;
 }
 
 section#projects {
@@ -973,6 +1012,7 @@ div.education-flex {
 
   footer {
     font-size: clamp(1rem, 2vw, 2rem);
+    color: white;
   }
 
   .social-icons {
@@ -994,14 +1034,15 @@ div.education-flex {
   }
 
   footer p {
-    margin: 1rem 0;
+    margin: 2rem 0;
   }
 
   footer a {
     margin: 1rem 0;
+    color: #fffdfd;
   }
 
-  footer a:hover img {
+  footer a:hover {
     transform: rotate(10deg) scale(1.35);
     filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.9));
     color: white;
