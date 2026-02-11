@@ -341,7 +341,7 @@ footer a:hover {
 .experience b {
   display: inline-block;
   transition:
-    scale 0.3s ease,
+    transform 0.3s ease,
     text-shadow 0.3s ease;
 }
 
@@ -479,7 +479,7 @@ div.education-flex {
 .education-flex-2 b {
   display: inline-block;
   transition:
-    scale 0.3s ease,
+    transform 0.3s ease,
     text-shadow 0.3s ease;
 }
 
@@ -571,7 +571,7 @@ div.education-flex {
 .tools-list b {
   display: inline-block;
   transition:
-    scale 0.3s ease,
+    transform 0.3s ease,
     text-shadow 0.3s ease;
 }
 
