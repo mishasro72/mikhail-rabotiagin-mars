@@ -2,33 +2,25 @@
 // *Float-menu
 // **************************************
 
-// const { createElement } = require("react");
-
 const trigger = document.querySelector(".menu-trigger");
 const sideMenu = document.querySelector(".sidebar");
 
-let isOpen = false;
-
-function menuOpen() {
-  sideMenu.classList.add("menu-open");
-  isOpen = true;
-}
-
-function menuClosed() {
-  sideMenu.classList.remove("menu-open");
-  isOpen = false;
-}
-
-trigger.addEventListener("mouseenter", menuOpen);
-sideMenu.addEventListener("mouseleave", menuClosed);
-
-trigger.addEventListener("click", () => {
-  if (isOpen) {
-    menuClosed();
-  } else {
-    menuOpen();
+if (trigger && sideMenu) {
+  function menuOpen() {
+    sideMenu.classList.add("menu-open");
   }
-});
+
+  function menuClosed() {
+    sideMenu.classList.remove("menu-open");
+  }
+
+  trigger.addEventListener("mouseenter", menuOpen);
+  sideMenu.addEventListener("mouseleave", menuClosed);
+
+  trigger.addEventListener("click", () => {
+    sideMenu.classList.toggle("menu-open");
+  });
+}
 
 // **
 // *Add skills to skill section
@@ -155,7 +147,6 @@ if (document.body.classList.contains("page-home")) {
 
   const skillSection = document.querySelector("#skills");
   const skillTtext = document.createElement("p");
-  // skillTtext.classList.add('hide-section-text');
   skillTtext.innerHTML =
     "I combine a strong quality-focused mindset with growing expertise in frontend development. My core skills include building responsive interfaces with HTML, CSS, and JavaScript, working with modern developer tools, and applying best practices in usability, accessibility, and code quality.<br><br> With a background in QA and acceptance testing, I pay close attention to detail, write maintainable code, and approach development with a user-first perspective. I am continuously expanding my skills through hands-on projects and training at Code the Dream.";
 
@@ -247,28 +238,22 @@ parent.append(footer);
 const triggerFooter = document.querySelector(".footer-trigger");
 const footerSection = document.querySelector(".footer");
 
-let isOpenFooter = false;
-
-function footerOpen() {
-  footerSection.classList.add("is-open");
-  isOpenFooter = true;
-}
-
-function footerClosed() {
-  footerSection.classList.remove("is-open");
-  isOpenFooter = false;
-}
-
-triggerFooter.addEventListener("mouseenter", footerOpen);
-footerSection.addEventListener("mouseleave", footerClosed);
-
-triggerFooter.addEventListener("click", () => {
-  if (isOpenFooter) {
-    footerClosed();
-  } else {
-    footerOpen();
+if (triggerFooter && footerSection) {
+  function footerOpen() {
+    footerSection.classList.add("is-open");
   }
-});
+
+  function footerClosed() {
+    footerSection.classList.remove("is-open");
+  }
+
+  triggerFooter.addEventListener("mouseenter", footerOpen);
+  footerSection.addEventListener("mouseleave", footerClosed);
+
+  triggerFooter.addEventListener("click", () => {
+    footerSection.classList.toggle("is-open");
+  });
+}
 
 // **
 // *Leave a message
