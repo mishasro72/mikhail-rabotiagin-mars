@@ -265,14 +265,17 @@ if (document.body.classList.contains("page-message")) {
   const messageSection = document.querySelector("#messages");
   const messageList = messageSection.querySelector("ul");
 
-  if (!messageList.querySelector("li")) {
-    messageSection.classList.add("hide-message-section");
+  function toggleMessageSection() {
+    messageSection.classList.toggle(
+      "hide-message-section",
+      !messageList.querySelector("li"),
+    );
   }
+
+  toggleMessageSection();
 
   mesageForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    messageSection.classList.remove("hide-message-section");
 
     const userName = event.target.usersName.value;
     const usersEmail = event.target.usersEmail.value;
@@ -296,7 +299,7 @@ if (document.body.classList.contains("page-message")) {
     removeButton.addEventListener("click", (event) => {
       const entry = event.target.parentNode;
       entry.remove();
-      messageSection.classList.add("hide-message-section");
+      toggleMessageSection();
     });
 
     const editButton = document.createElement("button");
@@ -333,6 +336,7 @@ if (document.body.classList.contains("page-message")) {
     newMessage.appendChild(removeButton);
 
     messageList.append(newMessage);
+    toggleMessageSection();
 
     event.target.reset();
   });
