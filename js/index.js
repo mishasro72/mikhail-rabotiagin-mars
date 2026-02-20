@@ -47,6 +47,10 @@ if (document.body.classList.contains("page-home")) {
   ];
 
   const skillsIcon = {
+    C: {
+      viewBox: "0 0 24 24",
+      d: "M16.592 9.196s-.354-3.298-3.627-3.39c-3.274-.09-4.955 2.474-4.955 6.14s1.858 6.597 5.045 6.597c3.184 0 3.538-3.665 3.538-3.665l6.104.365s.36 3.31-2.196 5.836c-2.552 2.524-5.69 2.937-7.876 2.92c-2.19-.016-5.226.035-8.16-2.97c-2.938-3.01-3.436-5.93-3.436-8.8s.556-6.67 4.047-9.55C7.444.72 9.849 0 12.254 0c10.042 0 10.717 9.26 10.717 9.26z",
+    },
     Python: {
       viewBox: "0 0 448 512",
       d: "M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2l-40.1 0 0 47.4c0 36.8-31.2 67.8-66.8 67.8l-106.8 0c-29.2 0-53.4 25-53.4 54.3l0 101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3l0-40.7-106.7 0 0-13.6 160.2 0c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7zM167.8 248.1l106.8 0c29.7 0 53.4-24.5 53.4-54.3l0-101.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6l0 40.7 106.9 0 0 13.6-147 0c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2l36.7 0 0-48.8c0-35.3 30.5-66.4 66.8-66.4zM161.2 64.7a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8z",
@@ -341,3 +345,89 @@ if (document.body.classList.contains("page-message")) {
     event.target.reset();
   });
 }
+
+// **
+// *Add prohects from GitHub
+// **************************************
+
+const gitHubUrl = "https://api.github.com/users/mishasro72/repos";
+
+async function getRepositoryGitHub(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    const data = await response.json();
+    return data
+      .filter((element) => element.private == false)
+      .map((item) => {
+        return {
+          name: item.name,
+          url: item.html_url,
+          ...(item.language && { language: item.language }),
+        };
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addProjects() {
+  let repositories = await getRepositoryGitHub(gitHubUrl);
+  console.log(repositories);
+
+  const projectSection = document.querySelector("#projects");
+
+  const projectString = document.createElement("p");
+  projectString.textContent =
+    "This section features a collection of my GitHub projects, including frontend practice work, automation testing exercises, and programming coursework completed during my training at Code the Dream and through independent study. The repositories demonstrate my hands-on experience with JavaScript, Python, test automation, and problem-solving tasks, as well as my progression from QA into frontend development. Each project link provides access to the source code and implementation details.";
+  projectString.classList.add("hide-section-text");
+  projectSection.append(projectString);
+
+  const projectList = document.createElement("ul");
+  projectList.classList.add("project-list");
+
+  projectSection.append(projectList);
+
+  for (let i = 0; i < repositories.length; i++) {
+    let project = document.createElement("li");
+    project.setAttribute("tabindex", "0");
+    project.classList.add("project-card");
+
+    // const projectText = document.createElement("span");
+    // projectText.textContent = `${repositories[i].name}`;
+    // project.append(projectText);
+
+    // if (repositories[i].language) {
+    //   const projectLang = document.createElement("span");
+    //   projectLang.textContent = `Language: ${repositories[i].language}`;
+    //   project.append(projectLang);
+    // }
+
+    const projectLink = document.createElement("a");
+    projectLink.textContent = `${repositories[i].name}`;
+    projectLink.href = `${repositories[i].url}`;
+    projectLink.setAttribute("aria-label", "Link to GitHub");
+    project.append(projectLink);
+
+    projectList.append(project);
+  }
+
+  // const projectCard = projectSection.querySelectorAll(".project-card");
+
+  // projectCard.forEach((card) => {
+  //   const link = card.querySelector("a");
+  //   link.dataset.original = link.textContent;
+
+  //   card.addEventListener("mouseenter", (e) => {
+  //     const oldText = e.currentTarget.textContent;
+  //     e.target.textContent = ">>Check it out<<";
+  //   });
+  //   card.addEventListener("mouseleave", (e) => {
+  //     e.currentTarget.textContent = link.dataset.original;
+  //   });
+  // });
+}
+
+addProjects();

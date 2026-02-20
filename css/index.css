@@ -460,7 +460,9 @@ a.close-window:hover {
 }
 
 .skills-list li {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(59, 59, 57, 0.61);
   padding: 3rem;
   border-radius: 12px;
@@ -475,8 +477,11 @@ a.close-window:hover {
 }
 
 .skills-list li:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(1.4);
+  box-shadow:
+    0 0 10px rgba(242, 233, 0, 0.8),
+    0 0 20px rgba(242, 233, 0, 0.6),
+    0 0 40px rgba(242, 233, 0, 0.4);
+  transform: scale(1.14);
   z-index: 10;
   background-color: rgb(111, 109, 109);
   color: white;
@@ -588,7 +593,7 @@ body.page-message {
 }
 
 #messages li > a,
-span {
+#messages li > span {
   padding: 1rem;
   align-self: center;
 }
@@ -596,9 +601,6 @@ span {
 #messages a {
   text-decoration: none;
   color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-
   display: inline-block;
 
   transition:
@@ -612,6 +614,75 @@ span {
 
 #messages.hide-message-section {
   display: none;
+}
+
+.project-list {
+  display: flex;
+  /* flex-direction: column; */
+  list-style-type: none;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  padding-left: 0;
+}
+
+.project-list span {
+  display: block;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.project-list a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  align-self: center;
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.project-list a:hover {
+  text-shadow: 0 0 5px rgba(230, 237, 243, 0.7);
+  color: #f2e900;
+}
+
+.project-list li {
+  display: flex;
+  min-width: 20%hv;
+  height: 10rem;
+  /* flex-direction: column; */
+  justify-items: center;
+  align-items: center;
+  background-color: rgba(59, 59, 57, 0.61);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  border-radius: 12px;
+  gap: 1rem;
+  transition:
+    box-shadow 0.8s ease,
+    transform 0.8s ease;
+}
+
+.project-list li:hover {
+  transform: scale(1.02);
+  z-index: 10;
+  background-color: rgb(111, 109, 109);
+  color: white;
+  box-shadow:
+    0 0 10px rgba(242, 233, 0, 0.8),
+    0 0 20px rgba(242, 233, 0, 0.6),
+    0 0 40px rgba(242, 233, 0, 0.4);
+}
+.project-list li:focus-visible {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  z-index: 10;
+  background-color: rgb(111, 109, 109);
+  color: white;
 }
 
 @media (max-width: 1270px) {
@@ -674,7 +745,7 @@ span {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 820px) {
   .hide-section {
     position: relative;
 
@@ -687,6 +758,7 @@ span {
     transition: transform 0.9s ease;
 
     padding: 1rem 3rem;
+    margin: 0;
   }
 
   a.close-window {
