@@ -395,39 +395,18 @@ async function addProjects() {
     project.setAttribute("tabindex", "0");
     project.classList.add("project-card");
 
-    // const projectText = document.createElement("span");
-    // projectText.textContent = `${repositories[i].name}`;
-    // project.append(projectText);
-
-    // if (repositories[i].language) {
-    //   const projectLang = document.createElement("span");
-    //   projectLang.textContent = `Language: ${repositories[i].language}`;
-    //   project.append(projectLang);
-    // }
-
     const projectLink = document.createElement("a");
-    projectLink.textContent = `${repositories[i].name}`;
+   
     projectLink.href = `${repositories[i].url}`;
     projectLink.setAttribute("aria-label", "Link to GitHub");
+    projectLink.innerHTML = `<span class = title-text>${repositories[i].name}</span>
+                            <span class='hover-text'> >>>Check it out<<< </span>`;
+    
+
     project.append(projectLink);
 
     projectList.append(project);
   }
-
-  // const projectCard = projectSection.querySelectorAll(".project-card");
-
-  // projectCard.forEach((card) => {
-  //   const link = card.querySelector("a");
-  //   link.dataset.original = link.textContent;
-
-  //   card.addEventListener("mouseenter", (e) => {
-  //     const oldText = e.currentTarget.textContent;
-  //     e.target.textContent = ">>Check it out<<";
-  //   });
-  //   card.addEventListener("mouseleave", (e) => {
-  //     e.currentTarget.textContent = link.dataset.original;
-  //   });
-  // });
 }
 
 addProjects();
