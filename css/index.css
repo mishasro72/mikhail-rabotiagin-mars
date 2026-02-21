@@ -415,7 +415,10 @@ a.close-window:hover {
 }
 
 .experience-card:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 10px rgba(242, 233, 0, 0.8),
+    0 0 20px rgba(242, 233, 0, 0.6),
+    0 0 40px rgba(242, 233, 0, 0.4);
   transform: scale(1.2);
   background-color: rgb(111, 109, 109);
   color: white;
