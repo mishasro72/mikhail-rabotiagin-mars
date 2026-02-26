@@ -1,7 +1,6 @@
 // **
 // *Float-menu
 // **************************************
-
 const trigger = document.querySelector(".menu-trigger");
 const sideMenu = document.querySelector(".sidebar");
 
@@ -19,6 +18,38 @@ if (trigger && sideMenu) {
 
   trigger.addEventListener("click", () => {
     sideMenu.classList.toggle("menu-open");
+  });
+
+  menuLinks = document.querySelectorAll(".menu-link-tab");
+  menuLinks.forEach((link) => {
+    link.addEventListener("focus", () => {
+      menuOpen();
+    });
+    link.addEventListener("blur", () => {
+      menuClosed();
+    });
+  });
+
+  menuHint = document.querySelector(".menu-hint");
+
+  menuHint.addEventListener("click", () => {
+    sideMenu.classList.toggle("menu-open");
+
+    let aboutMenuItem = document.querySelector(".menu a:first-child");
+    if (aboutMenuItem) {
+      aboutMenuItem.focus();
+    }
+  });
+
+  menuHint.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sideMenu.classList.toggle("menu-open");
+
+      let aboutMenuItem = document.querySelector(".menu a:first-child");
+      if (aboutMenuItem) {
+        aboutMenuItem.focus();
+      }
+    }
   });
 }
 
@@ -392,16 +423,15 @@ async function addProjects() {
 
   for (let i = 0; i < repositories.length; i++) {
     let project = document.createElement("li");
-    project.setAttribute("tabindex", "0");
+    // project.setAttribute("tabindex", "0");
     project.classList.add("project-card");
 
     const projectLink = document.createElement("a");
-   
+
     projectLink.href = `${repositories[i].url}`;
     projectLink.setAttribute("aria-label", "Link to GitHub");
     projectLink.innerHTML = `<span class = title-text>${repositories[i].name}</span>
                             <span class='hover-text'> >>>Check it out<<< </span>`;
-    
 
     project.append(projectLink);
 
