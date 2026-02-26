@@ -39,6 +39,7 @@ h3 {
   transition: all 0.6s ease;
   display: flex;
   fill: gray;
+  z-index: 1320;
 }
 
 .menu-hint:hover {
@@ -291,6 +292,12 @@ a.contact-me:hover {
   transform: scale(1.2);
 }
 
+a.contact-me:focus-visible {
+  background-color: #fff;
+  text-decoration: none;
+  transform: scale(1.2);
+}
+
 .logo-box {
   background-color: #f2e900;
   display: grid;
@@ -314,6 +321,10 @@ a.contact-me:hover {
   transform: scale(1.2);
 }
 
+.logo img:focus-visible {
+  transform: scale(1.2);
+}
+
 a.my-projects {
   grid-row: 2;
   display: inline-block;
@@ -331,6 +342,13 @@ a.my-projects {
 }
 
 a.my-projects:hover {
+  background-color: #fff;
+  color: black;
+  text-decoration: none;
+  transform: scale(1.2);
+}
+
+a.my-projects:focus-within {
   background-color: #fff;
   color: black;
   text-decoration: none;
@@ -667,6 +685,10 @@ body.page-message {
   opacity: 0;
 }
 
+.project-card:focus-within .title-text {
+  opacity: 0;
+}
+
 .project-card .hover-text {
   position: absolute;
   display: inline-block;
@@ -679,6 +701,10 @@ body.page-message {
 }
 
 .project-card:hover .hover-text {
+  opacity: 1;
+}
+
+.project-card:focus-within .hover-text {
   opacity: 1;
 }
 
@@ -707,12 +733,15 @@ body.page-message {
     0 0 40px rgba(242, 233, 0, 0.4);
 }
 
-.project-list li:focus-visible {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(1.02);
+.project-list li:focus-within{
+ transform: scale(1.02), translateY(-6px);
   z-index: 10;
   background-color: rgb(111, 109, 109);
   color: white;
+  box-shadow:
+    0 0 10px rgba(242, 233, 0, 0.8),
+    0 0 20px rgba(242, 233, 0, 0.6),
+    0 0 40px rgba(242, 233, 0, 0.4);
 }
 
 @media (max-width: 1270px) {

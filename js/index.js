@@ -423,7 +423,7 @@ async function addProjects() {
 
   for (let i = 0; i < repositories.length; i++) {
     let project = document.createElement("li");
-    project.setAttribute("tabindex", "0");
+    // project.setAttribute("tabindex", "0");
     project.classList.add("project-card");
 
     const projectLink = document.createElement("a");
