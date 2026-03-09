@@ -615,7 +615,7 @@ body.page-message {
   list-style-type: none;
   padding-left: 0;
   width: 100%;
-  max-width: 30rem;
+  max-width: 50rem;
 }
 
 #messages li {
@@ -623,11 +623,10 @@ body.page-message {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-content: stretch;
   margin-bottom: 2rem;
   border: 1px solid;
   width: 100%;
-  max-width: 30rem;
 }
 
 #messages li > a,
@@ -640,7 +639,7 @@ body.page-message {
   display: block;
   flex-wrap: wrap;
   word-wrap: break-word;
-  max-width: 30rem;
+  width: 100%;
 }
 
 #messages a {
@@ -854,11 +853,10 @@ body.page-message {
   #messages li {
     padding: 1rem;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   #messages li > * {
     padding: 1rem;
-    align-self: flex-start;
   }
 }
