@@ -378,65 +378,67 @@ if (document.body.classList.contains("page-message")) {
 }
 
 // **
-// *Add prohects from GitHub
+// *Add projects from GitHub
 // **************************************
 
-const gitHubUrl = "https://api.github.com/users/mishasro72/repos";
+if (document.body.classList.contains("page-home")) {
+  const gitHubUrl = "https://api.github.com/users/mishasro72/repos";
 
-async function getRepositoryGitHub(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(response.status);
+  async function getRepositoryGitHub(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      const data = await response.json();
+      return data
+        .filter((element) => element.private == false)
+        .map((item) => {
+          return {
+            name: item.name,
+            url: item.html_url,
+            ...(item.language && { language: item.language }),
+          };
+        });
+    } catch (error) {
+      console.error(error);
     }
-    const data = await response.json();
-    return data
-      .filter((element) => element.private == false)
-      .map((item) => {
-        return {
-          name: item.name,
-          url: item.html_url,
-          ...(item.language && { language: item.language }),
-        };
-      });
-  } catch (error) {
-    console.error(error);
   }
-}
 
-async function addProjects() {
-  let repositories = await getRepositoryGitHub(gitHubUrl);
-  console.log(repositories);
+  async function addProjects() {
+    let repositories = await getRepositoryGitHub(gitHubUrl);
+   
+    const projectSection = document.querySelector("#projects");
 
-  const projectSection = document.querySelector("#projects");
+    const projectString = document.createElement("p");
+    projectString.textContent =
+      "This section features a collection of my GitHub projects, including frontend practice work, automation testing exercises, and programming coursework completed during my training at Code the Dream and through independent study. The repositories demonstrate my hands-on experience with JavaScript, Python, test automation, and problem-solving tasks, as well as my progression from QA into frontend development. Each project link provides access to the source code and implementation details.";
+    projectString.classList.add("hide-section-text");
+    projectSection.append(projectString);
 
-  const projectString = document.createElement("p");
-  projectString.textContent =
-    "This section features a collection of my GitHub projects, including frontend practice work, automation testing exercises, and programming coursework completed during my training at Code the Dream and through independent study. The repositories demonstrate my hands-on experience with JavaScript, Python, test automation, and problem-solving tasks, as well as my progression from QA into frontend development. Each project link provides access to the source code and implementation details.";
-  projectString.classList.add("hide-section-text");
-  projectSection.append(projectString);
+    const projectList = document.createElement("ul");
+    projectList.classList.add("project-list");
 
-  const projectList = document.createElement("ul");
-  projectList.classList.add("project-list");
+    projectSection.append(projectList);
 
-  projectSection.append(projectList);
+    for (let i = 0; i < repositories.length; i++) {
+      let project = document.createElement("li");
+      project.classList.add("project-card");
 
-  for (let i = 0; i < repositories.length; i++) {
-    let project = document.createElement("li");
-    // project.setAttribute("tabindex", "0");
-    project.classList.add("project-card");
+      const projectLink = document.createElement("a");
 
-    const projectLink = document.createElement("a");
-
-    projectLink.href = `${repositories[i].url}`;
-    projectLink.setAttribute("aria-label", "Link to GitHub");
-    projectLink.innerHTML = `<span class = title-text>${repositories[i].name}</span>
+      projectLink.href = `${repositories[i].url}`;
+      projectLink.setAttribute("aria-label", "Link to GitHub");
+      projectLink.setAttribute("target", "_blank");
+      projectLink.setAttribute("rel", "nopener noreferrer");
+      projectLink.innerHTML = `<span class = title-text>${repositories[i].name}</span>
                             <span class='hover-text'> >>>Check it out<<< </span>`;
 
-    project.append(projectLink);
+      project.append(projectLink);
 
-    projectList.append(project);
+      projectList.append(project);
+    }
   }
-}
 
-addProjects();
+  addProjects();
+}
