@@ -548,11 +548,13 @@ body.page-message {
 
 .leave-message-form input {
   padding: 1rem;
-  width: 30rem;
+  width: 80vw;
+  max-width: 30rem;
 }
 
 .leave-message-form textarea {
-  width: 30rem;
+  width: 80vw;
+  max-width: 30rem;
   height: 10rem;
 }
 
@@ -612,22 +614,33 @@ body.page-message {
   align-items: flex-start;
   list-style-type: none;
   padding-left: 0;
+  width: 100%;
+  max-width: 30rem;
 }
 
 #messages li {
-  padding: auto;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  margin: 2rem;
+  margin-bottom: 2rem;
   border: 1px solid;
+  width: 100%;
+  max-width: 30rem;
 }
 
 #messages li > a,
 #messages li > span {
   padding: 1rem;
   align-self: center;
+}
+
+#messages li > span {
+  display: block;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  max-width: 30rem;
 }
 
 #messages a {
@@ -733,8 +746,8 @@ body.page-message {
     0 0 40px rgba(242, 233, 0, 0.4);
 }
 
-.project-list li:focus-within{
- transform: scale(1.02), translateY(-6px);
+.project-list li:focus-within {
+  transform: scale(1.02), translateY(-6px);
   z-index: 10;
   background-color: rgb(111, 109, 109);
   color: white;
@@ -842,7 +855,6 @@ body.page-message {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    margin: 2rem;
   }
 
   #messages li > * {
